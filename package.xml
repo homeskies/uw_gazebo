@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>uw_gazebo</name>
+  <version>1.0.0</version>
+  <description>
+    Worlds
+  </description>
+  <license>Apache 2.0</license>
+  <maintainer email="robocup@cs.washington.edu">UW RoboCup Contributors</maintainer>
+  <author email="robocup@cs.washington.edu">UW RoboCup Contributors</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>astro_description</exec_depend>
+  <exec_depend>dwa_local_planner</exec_depend>
+  <exec_depend>fetch_gazebo</exec_depend>
+  <exec_depend>fetch_gazebo_demo</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>moveit_ros</exec_depend>
+  <exec_depend>uw_fetch_bringup</exec_depend>
+
+  <export>
+    <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" gazebo_model_path="${prefix}/models"/>
+  </export>
+</package>

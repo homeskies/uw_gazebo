@@ -1,0 +1,34 @@
+<launch>
+
+  <arg name="use_sim_time" default="true" />
+  <arg name="gui" default="true" />
+  <arg name="debug" default="false" />
+  <arg name="world" />
+  <arg name="initial_pose_x" default="0" />
+  <arg name="initial_pose_y" default="0" />
+
+  <arg unless="$(arg debug)" name="gazebo_binary" value="gzserver" />
+  <arg if="$(arg debug)" name="gazebo_binary" value="debug" />
+
+  <!-- set use_sim_time flag -->
+  <group if="$(arg use_sim_time)">
+    <param name="/use_sim_time" value="true" />
+  </group>
+
+  <!-- start world -->
+  <node name="gazebo" pkg="gazebo_ros" type="$(arg gazebo_binary)" args="$(arg world)" respawn="false" output="screen" required="true" />
+
+  <!-- start gui -->
+  <group if="$(arg gui)">
+    <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" launch-prefix="$(optenv OPTIRUN_LAUNCH_PREFIX)" required="true" />
+  </group>
+
+  <!-- Oh, you wanted a robot? -->
+  <include file="$(find uw_gazebo)/launch/include/spawn_astro.xml">
+    <arg name="x" value="$(arg initial_pose_x)" />
+    <arg name="y" value="$(arg initial_pose_y)" />
+  </include>
+
+
+
+</launch>
