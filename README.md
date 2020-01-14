@@ -12,6 +12,12 @@ Launch one of the simulations with
 
 then launch whatever task specific nodes you need separately. Avoid having robot code depend on this package; there are a lot of large binary files in here, and we don't want to have to clone those to the robot (where we'll certainly never use them).
 
+### Spawning Objects
+
+The example script shows how to add an object to Gazebo through the ROS interface.
+
+    rosrun uw_gazebo house_add_table_objects
+
 ## House: How to Replace Photos in Picture Frames
 
 Picture frames use two textures for the model:

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+while rosservice call /gazebo/get_model_state '{model_name: fetch}' | grep 'success: False'; do sleep 1; done
+
+# Look through http://models.gazebosim.org/ for the default objects
+rosrun gazebo_ros spawn_model -database coke_can -sdf -model coke_can -x 1.7 -y -5.1 -z 0.45 -Y 1.57
