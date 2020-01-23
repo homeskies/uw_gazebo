@@ -29,6 +29,7 @@
     <arg name="y" value="$(arg initial_pose_y)" />
   </include>
 
-
+  <!-- MoveIt -->
+  <include file="$(find fetch_moveit_config)/launch/move_group.launch" />
 
 </launch>

@@ -20,10 +20,6 @@
     <arg name="map_file" value="$(arg map_file)"/>
   </include>
 
-  <include file="$(find fetch_moveit_config)/launch/move_group.launch">
-  </include>
-
   <node if="$(arg rviz)" name="rviz" type="rviz" pkg="rviz" args="--display-config $(find uw_fetch_bringup)/config/fetch.rviz" />
-
 
 </launch>
