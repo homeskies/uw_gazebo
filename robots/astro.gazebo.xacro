@@ -184,6 +184,19 @@
 
     <sensor_d415_gazebo name="head_external_camera"></sensor_d415_gazebo>
 
+
+<gazebo reference="head_display_screen">
+  <visual>
+    <plugin name="display_video_controller" filename="libgazebo_ros_video.so">
+      <topicName>/gazebo/head_display_image</topicName>
+      <height>720</height>
+      <width>1280</width>
+    </plugin>
+  </visual>
+            <material>Gazebo/Black</material>
+</gazebo>
+
+
     <!-- Color the bellows -->
     <gazebo reference="bellows_link">
         <material>Gazebo/Black</material>
