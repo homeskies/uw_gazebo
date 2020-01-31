@@ -1,3 +1,6 @@
 - git:
+    local-name: uw_fetch
+    uri: https://github.com/homeskies/uw_fetch.git
+- git:
     local-name: realsense_gazebo_plugin
     uri: https://github.com/pal-robotics/realsense_gazebo_plugin.git
