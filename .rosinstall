@@ -4,3 +4,6 @@
 - git:
     local-name: realsense_gazebo_plugin
     uri: https://github.com/pal-robotics/realsense_gazebo_plugin.git
+- git:
+    local-name: realsense_ros
+    uri: https://github.com/IntelRealSense/realsense-ros.git
