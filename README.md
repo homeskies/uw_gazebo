@@ -1,5 +1,7 @@
 # uw_gazebo
 
+![CI](https://github.com/homeskies/uw_gazebo/workflows/CI/badge.svg)
+
 ![Gazebo01](docs/images/gazebo_01.png)
 
 Contains a fork of [aws_robomaker_small_house_world](https://github.com/aws-robotics/aws-robomaker-small-house-world), with the ground plane swapped for something with friction parameters compatible with Fetch, and with some textures swapped out.
