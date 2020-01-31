@@ -8,7 +8,15 @@ Contains a fork of [aws_robomaker_small_house_world](https://github.com/aws-robo
 
 ## Installation
 
-In order to simulate the external head camera, you'll need to clone  [PAL Robotics' Gazebo plugin](https://github.com/pal-robotics/realsense_gazebo_plugin) into the workspace.
+In order to simulate the external head camera, you'll need to clone  [PAL Robotics' Gazebo plugin](https://github.com/pal-robotics/realsense_gazebo_plugin) into the workspace. To make sure you have the dependencies
+
+    wstool init <path_to_workspace> <path_to_uw_gazebo>/.rosinstall
+
+If you've already run `wstool` in your workspace, merge the new dependencies with
+
+    wstool merge -t <path_to_workspace>/src <path_to_uw_gazebo>/.rosinstall
+    cd src
+    wstool update
 
 ## Usage
 
