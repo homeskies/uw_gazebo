@@ -4,10 +4,15 @@ on: [push, pull_request]
 
 jobs:
   industrial_ci:
+    env:
+      CATKIN_LINT: true
+      ROS_DISTRO: melodic
+      ROS_REPO: main
+      UPSTREAM_WORKSPACE: .rosinstall
     strategy:
       matrix:
         env:
-          - {ROS_DISTRO: melodic, ROS_REPO: main, UPSTREAM_WORKSPACE: .rosinstall}
+          - {}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
