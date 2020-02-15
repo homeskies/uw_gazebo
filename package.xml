@@ -9,11 +9,13 @@
   <maintainer email="robocup@cs.washington.edu">UW RoboCup Contributors</maintainer>
   <author email="robocup@cs.washington.edu">UW RoboCup Contributors</author>
   <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>gazebo_ros</depend>
+  
   <exec_depend>astro_description</exec_depend>
   <exec_depend>dwa_local_planner</exec_depend>
   <exec_depend>fetch_gazebo</exec_depend>
   <exec_depend>fetch_gazebo_demo</exec_depend>
-  <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>gazebo</exec_depend>
   <exec_depend>gazebo_plugins</exec_depend>
   <exec_depend>moveit_ros</exec_depend>
