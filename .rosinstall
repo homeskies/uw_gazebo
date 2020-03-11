@@ -7,3 +7,4 @@
 - git:
     local-name: realsense_ros
     uri: https://github.com/IntelRealSense/realsense-ros.git
+    version: 2.2.12
