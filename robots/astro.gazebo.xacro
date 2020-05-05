@@ -241,6 +241,16 @@
 
     <!-- Load the plugin -->
     <gazebo>
+        <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>100.0</updateRate>
+          <bodyName>base_link</bodyName>
+          <topicName>odom_ground_truth</topicName>
+          <gaussianNoise>0.01</gaussianNoise>
+          <frameName>world</frameName>
+          <xyzOffsets>0 0 0</xyzOffsets>
+          <rpyOffsets>0 0 0</rpyOffsets>
+        </plugin>
         <plugin name="fetch_gazebo_plugin" filename="libfetch_gazebo_plugin.so"/>
     </gazebo>
 
