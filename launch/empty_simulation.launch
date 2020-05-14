@@ -4,13 +4,16 @@
 
   <arg name="rviz" default="true"/>
   <arg name="gui" default="true"/>
-  <arg name="map_file" default="$(find uw_gazebo)/maps/house/map.yaml"/>
+  <arg name="map_file" default=""/>
+  <arg name="world" default="" />
+  <arg name="use_astro" default="true" />
 
   <include file="$(find uw_gazebo)/launch/include/common.xml">
     <arg name="gui" value="$(arg gui)" />
-    <arg name="world" value="" />
+    <arg name="world" value="$(arg world)" />
     <arg name="initial_pose_x" value="3.5"/>
     <arg name="initial_pose_y" value="1.0"/>
+    <arg name="use_astro" value="$(arg use_astro)" />
   </include>
 
   <include file="$(find uw_fetch_bringup)/launch/navigation.launch">

@@ -78,9 +78,9 @@ aluminum peripherial evaluation case.
                         <stddev>0.007</stddev>
                     </noise>
                 </camera>
-                <always_on>1</always_on>
+                <always_on>0</always_on>
                 <update_rate>${color_fps}</update_rate>
-                <visualize>1</visualize>
+                <visualize>0</visualize>
             </sensor>
 
             <sensor name="ired1" type="camera">
@@ -102,7 +102,7 @@ aluminum peripherial evaluation case.
                         <stddev>0.05</stddev>
                     </noise>
                 </camera>
-                <always_on>1</always_on>
+                <always_on>0</always_on>
                 <update_rate>${ir_fps}</update_rate>
                 <visualize>0</visualize>
             </sensor>
@@ -125,7 +125,7 @@ aluminum peripherial evaluation case.
                         <stddev>0.05</stddev>
                     </noise>
                 </camera>
-                <always_on>1</always_on>
+                <always_on>0</always_on>
                 <update_rate>${ir_fps}</update_rate>
                 <visualize>0</visualize>
             </sensor>
@@ -148,7 +148,7 @@ aluminum peripherial evaluation case.
                         <stddev>0.043</stddev>
                     </noise>
                 </camera>
-                <always_on>1</always_on>
+                <always_on>0</always_on>
                 <update_rate>${ir_fps}</update_rate>
                 <visualize>0</visualize>
             </sensor>

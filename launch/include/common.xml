@@ -6,6 +6,7 @@
   <arg name="world" />
   <arg name="initial_pose_x" default="0" />
   <arg name="initial_pose_y" default="0" />
+  <arg name="use_astro" default="true"/>
 
   <arg unless="$(arg debug)" name="gazebo_binary" value="gzserver" />
   <arg if="$(arg debug)" name="gazebo_binary" value="debug" />
@@ -24,9 +25,10 @@
   </group>
 
   <!-- Oh, you wanted a robot? -->
-  <include file="$(find uw_gazebo)/launch/include/spawn_astro.xml">
+  <include file="$(find uw_gazebo)/launch/include/spawn_robot.xml">
     <arg name="x" value="$(arg initial_pose_x)" />
     <arg name="y" value="$(arg initial_pose_y)" />
+    <arg name="robot" unless="$(arg use_astro)" value="fetch" />
   </include>
 
   <!-- MoveIt -->
