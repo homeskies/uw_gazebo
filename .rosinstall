@@ -8,3 +8,6 @@
     local-name: realsense_ros
     uri: https://github.com/IntelRealSense/realsense-ros.git
     version: 2.2.12
+- git:
+    local-name: standard_objects
+    uri: https://github.com/AustinVillaatHome/standard_objects.git

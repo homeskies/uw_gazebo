@@ -2,5 +2,24 @@
 
 while rosservice call /gazebo/get_model_state '{model_name: fetch}' | grep 'success: False'; do sleep 1; done
 
+spawn(){
+  local name="$1"
+  local uniqueid="$name$2"
+  shift
+  shift
+  rosrun gazebo_ros spawn_model -database "$name" -sdf -model "$uniqueid" $@
+}
+
 # Look through http://models.gazebosim.org/ for the default objects
-rosrun gazebo_ros spawn_model -database coke_can -sdf -model coke_can -x 1.7 -y -5.1 -z 0.45 -Y 1.57
+spawn coke_can 0       -x 1.70 -y -5.10 -z 0.45 -Y 1.57
+
+# Make sure you've got the `standard_objects` repo built in the workspace.
+# Use the .rosinstall file.
+
+spawn coffee 0        -x 1.90 -y -5.10 -z 0.52 -Y 1.57
+
+spawn jello 0         -x 1.80 -y -4.90 -z 0.55 -Y 1.57
+
+spawn "potted meat" 0 -x 1.60 -y -5.00 -z 0.50 -Y 0.70
+
+spawn "cracker" 0 -x 1.40 -y -5.20 -z 0.51 -Y 0.30
