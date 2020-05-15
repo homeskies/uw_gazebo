@@ -3,5 +3,6 @@
     <include file="$(find uw_gazebo)/launch/empty_simulation.launch">
         <arg name="map_file" default="$(find fetch_gazebo_demo)/maps/test_zone.yaml"/>
         <arg name="world" default="$(find fetch_gazebo)/worlds/test_zone.sdf" />
+        <arg name="use_astro" value="$(arg use_astro)"/>
     </include>
 </launch>

@@ -1,6 +1,8 @@
 <launch>
-
-  <env name="GAZEBO_MODEL_PATH" value="$(find uw_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
+  <arg name="initial_pose_x" default="0.0"/>
+  <arg name="initial_pose_y" default="0.0"/>
+  <!-- Add fetch_gazebo models to support playground -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find fetch_gazebo)/models:$(find uw_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
 
   <arg name="rviz" default="true"/>
   <arg name="gui" default="true"/>
@@ -11,17 +13,20 @@
   <include file="$(find uw_gazebo)/launch/include/common.xml">
     <arg name="gui" value="$(arg gui)" />
     <arg name="world" value="$(arg world)" />
-    <arg name="initial_pose_x" value="3.5"/>
-    <arg name="initial_pose_y" value="1.0"/>
+    <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+    <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
     <arg name="use_astro" value="$(arg use_astro)" />
   </include>
 
   <include file="$(find uw_fetch_bringup)/launch/navigation.launch">
-    <arg name="initial_pose_x" value="3.5"/>
-    <arg name="initial_pose_y" value="1.0"/>
+    <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+    <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
     <arg name="map_file" value="$(arg map_file)"/>
     <arg name="use_fake_localization" value="true"/>
   </include>
+
+  <!-- Let the robot move faster than in the real world -->
+  <rosparam file="$(find uw_gazebo)/config/move_base.yaml" ns="move_base" command="load" />
 
   <node if="$(arg rviz)" name="rviz" type="rviz" pkg="rviz" args="--display-config $(find uw_fetch_bringup)/config/fetch.rviz" />
 
