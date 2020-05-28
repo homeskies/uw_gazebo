@@ -1,8 +1,9 @@
 <launch>
   <arg name="use_astro" default="true" />
+  <arg name="map_file" default="$(find uw_gazebo)/maps/house/map.yaml"/>
   <include file="$(find uw_gazebo)/launch/empty_simulation.launch">
-    <arg name="map_file" default="$(find uw_gazebo)/maps/house/map.yaml"/>
-    <arg name="world" default="$(find uw_gazebo)/worlds/house.world" />
+    <arg name="map_file" value="$(arg map_file)"/>
+    <arg name="world" value="$(find uw_gazebo)/worlds/house.world" />
     <arg name="use_astro" value="$(arg use_astro)"/>
     <arg name="initial_pose_x" value="3.5"/>
     <arg name="initial_pose_y" value="1.0"/>
