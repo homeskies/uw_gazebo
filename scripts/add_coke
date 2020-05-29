@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+while rosservice call /gazebo/get_model_state '{model_name: fetch}' | grep 'success: False'; do sleep 1; done
+
+spawn(){
+  local name="$1"
+  local uniqueid="$name$2"
+  shift
+  shift
+  rosrun gazebo_ros spawn_model -file "$name" -sdf -model "$uniqueid" $@
+}
+
+# Look through http://models.gazebosim.org/ for the default objects
+rosrun gazebo_ros spawn_model -file "$(dirname $(dirname $(realpath $0)) )/models/coke_can/model.sdf" -sdf -model coke_can -x 1.70 -y -5.10 -z 0.45 -Y 1.57
