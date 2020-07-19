@@ -8,4 +8,5 @@
     <arg name="initial_pose_x" value="3.5"/>
     <arg name="initial_pose_y" value="1.0"/>
   </include>
+    <node name="load_map_annotations" pkg="knowledge_representation" type="populate_with_map" args="$(find uw_gazebo)/maps/house/map.yaml"/>
 </launch>

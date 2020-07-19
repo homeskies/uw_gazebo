@@ -18,6 +18,7 @@
   <exec_depend>fetch_gazebo_demo</exec_depend>
   <exec_depend>gazebo</exec_depend>
   <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>knowledge_representation</exec_depend>
   <exec_depend>moveit_ros</exec_depend>
   <exec_depend>realsense_gazebo_plugin</exec_depend>
   <exec_depend>uw_fetch_bringup</exec_depend>
