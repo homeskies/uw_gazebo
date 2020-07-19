@@ -7,19 +7,67 @@ spawn(){
   local uniqueid="$name$2"
   shift
   shift
-  rosrun gazebo_ros spawn_model -database "$name" -sdf -model "$uniqueid" $@
+
+  local x="$1"
+  local y="$2"
+  local z="$3"
+  local yaw="$4"
+  rosrun gazebo_ros spawn_model -database "$name" -sdf -model "$uniqueid" -x "$x" -y "$y" -z "$z" -Y "$yaw"
+}
+
+set_pose(){
+  # Won't set yaw becasue quaternions...
+  # Anything fancier than this and we'll have to spawn via Python a la
+  # https://github.com/ros-simulation/gazebo_ros_pkgs/blob/kinetic-devel/gazebo_ros/scripts/spawn_model
+  local name="$1"
+  local uniqueid="$name$2"
+  shift
+  shift
+
+  local x="$1"
+  local y="$2"
+  local z="$3"
+  local yaw="$4"
+  rosservice call /gazebo/set_model_state "model_state:
+  model_name: \"$uniqueid\"
+  pose:
+    position:
+      x: $x
+      y: $y
+      z: $z
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 0.0
+  twist:
+    linear:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    angular:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+  reference_frame: ''
+"
+}
+
+spawn_reset(){
+  spawn "$@"
+  set_pose "$@"
 }
 
 # Look through http://models.gazebosim.org/ for the default objects
-spawn coke_can 0       -x 1.70 -y -5.10 -z 0.45 -Y 1.57
+spawn_reset coke_can 0       1.70 -5.10 0.45 1.57
 
 # Make sure you've got the `standard_objects` repo built in the workspace.
 # Use the .rosinstall file.
 
-spawn coffee 0        -x 1.90 -y -5.10 -z 0.52 -Y 1.57
+spawn_reset coffee 0        1.90 -5.10 0.52 1.57
 
-spawn jello 0         -x 1.80 -y -4.90 -z 0.55 -Y 1.57
+spawn_reset jello 0         1.80 -4.90 0.55 1.57
 
-spawn "potted meat" 0 -x 1.60 -y -5.00 -z 0.50 -Y 0.70
+spawn_reset "potted meat" 0 1.60 -5.00 0.50 0.70
 
-spawn "cracker" 0 -x 1.40 -y -5.20 -z 0.51 -Y 0.30
+spawn_reset "cracker" 0 1.40 -5.20 0.51 0.30
